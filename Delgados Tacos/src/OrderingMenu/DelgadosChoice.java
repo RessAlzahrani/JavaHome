@@ -2,14 +2,15 @@
  * 
  */
 package OrderingMenu;
+
 import java.util.Scanner;
 
 /**
  * @author RA316282
  *
  */
-public class Taco {
-	private static Scanner inputDevice;
+public class DelgadosChoice {
+
 	/**
 	 * @param args
 	 */
@@ -41,8 +42,112 @@ public class Taco {
 		double ChurroPrice = 9.78;
 		double totalPrice;
 		double totalPriceWithTax;
+		int OrderNumber; 
+        double salesTax = .075;
+	
+		
+		Scanner inputDevice = new Scanner (System.in);
 				
-		inputDevice = new Scanner(System.in);
+		
+		System.out.println("Hello and welcome to Delgados Tacos.");
+		System.out.println("From the menu above what would you like to order?");
+		System.out.println("Please select a menu number.");
+		OrderNumber = inputDevice.nextInt();
+		inputDevice.nextLine();
+		
+		
+		if(OrderNumber == 1)
+		{
+			System.out.println("I see you like Tacos, how many would you like?");
+			TacoOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (TacoPrice * TacoOrdered);
+		    System.out.println("You ordered " + TacoOrdered + " Tacos." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 2)
+		{
+			System.out.println("I see you like Burritos, how many would you like?");
+			BurritoOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (BurritoPrice * BurritoOrdered);
+		    System.out.println("You ordered " + BurritoOrdered + " Burritos." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 3)
+		{
+			System.out.println("I see you like Quesadillas, how many would you like?");
+			QuesadillaOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (QuesadillaPrice * QuesadillaOrdered);
+		    System.out.println("You ordered " + QuesadillaOrdered + " Quesadillas." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 4)
+		{
+			System.out.println("I see you like Temales, how many would you like?");
+			TemaleOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (TemalePrice * TemaleOrdered);
+		    System.out.println("You ordered " + TemaleOrdered + " Temales." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 5)
+		{
+			System.out.println("I see you like Gorditas, how many would you like?");
+			GorditaOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (GorditaPrice * GorditaOrdered);
+		    System.out.println("You ordered " + GorditaOrdered + " Gorditas." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 6)
+		{
+			System.out.println("I see you like Chilaquiles, how many would you like?");
+			ChilaquilesOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (ChilaquilesPrice * ChilaquilesOrdered);
+		    System.out.println("You ordered " + ChilaquilesOrdered + " Chilaquiles." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 7)
+		{
+			System.out.println("I see you like Enchiladas, how many would you like?");
+			EnchiladaOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (EnchiladaPrice * EnchiladaOrdered);
+		    System.out.println("You ordered " + EnchiladaOrdered + " Enchiladas." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 8)
+		{
+			System.out.println("I see you like Elotes, how many would you like?");
+			EloteOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (ElotePrice * EloteOrdered);
+		    System.out.println("You ordered " + EloteOrdered + " Elotes." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 9)
+		{
+			System.out.println("I see you like Churros, how many would you like?");
+			ChurroOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (ChurroPrice * ChurroOrdered);
+		    System.out.println("You ordered " + ChurroOrdered + " Churros." + "\nThat's going to be " + totalPrice);
+		}
+		
+		if(OrderNumber == 10)
+		{
+			System.out.println("I see you like Guacamole, how many sides would you like?");
+			GuacamoleOrdered = inputDevice.nextDouble();
+		    inputDevice.nextLine();
+		    totalPrice = (GuacamolePrice * GuacamoleOrdered);
+		    System.out.println("You ordered " + GuacamoleOrdered + " Guacamole." + "\nThat's going to be " + totalPrice);
+		}
+		
+		
+		
 		
 		System.out.println("How many Tacos do you want? >>>> ");
 		TacoOrdered = inputDevice. nextDouble();
@@ -87,9 +192,9 @@ public class Taco {
 		
 		totalPrice = (TacoPrice * TacoOrdered) + (BurritoOrdered * BurritoPrice) + (QuesadillaOrdered * QuesadillaPrice) + (TemaleOrdered * TemalePrice) + (GorditaOrdered * GorditaPrice) + (ChilaquilesOrdered * ChilaquilesPrice) + (EnchiladaOrdered + EnchiladaPrice) + (EloteOrdered * ElotePrice) + (GuacamoleOrdered * GuacamolePrice) + (ChurroOrdered * ChurroPrice);
 		
-		double salesTax = .075;
 		
 		totalPriceWithTax = totalPrice * salesTax;
+		
 		
 		System.out.println("Your Order comes out to be " + totalPrice + ", and " + totalPriceWithTax + " after the tax.");
 		totalPrice = inputDevice. nextDouble();
@@ -115,13 +220,7 @@ public class Taco {
 	
 	public static void salesTax (double totalPrice)
 	{
-		double salesTax = .075;
 		
-		double totalPriceWithTax = totalPrice * salesTax;
-		
-		System.out.println("Your Order comes out to be " + totalPrice + ", and " + totalPriceWithTax + " after the tax.");
-		totalPrice = inputDevice. nextDouble();
-		inputDevice.nextLine();
 	}
 	public static void tacoTruck()
 	{
@@ -155,4 +254,6 @@ public class Taco {
 		System.out.println("*********************************************************************************************");
 	}
 
-}
+
+	}
+

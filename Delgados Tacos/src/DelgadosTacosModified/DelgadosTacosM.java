@@ -1,13 +1,13 @@
 /**
  * 
  */
-package DelgadosTacosChoice;
+package DelgadosTacosModified;
 
 /**
  * @author RA316282
  *
  */
-public class DelgadosTacosChoice {
+public class DelgadosTacosM {
 
 	/**
 	 * @param args
