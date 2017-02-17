@@ -19,7 +19,7 @@ public class RockPaperScissors {
 		// TODO Auto-generated method stub
 		int user;
 		int computer;
-		String msg;
+		String msg = null;
 		String userPick;
 		String computerPick;
 		final int LOW = 0;
@@ -35,11 +35,39 @@ public class RockPaperScissors {
 			msg = "Tie";
 		}
 		
+		if(user == 2 && computer == 0)
+		{
+			msg = "Rock beats scissors, computer is the master";
+		}
+		
+		if(user == 0 && computer == 2)
+		{
+			msg = "Rock beats scissors, user is the master";
+		}
+		
+		if(user == 1 && computer == 2)
+		{
+			msg = "Scissors beats paper, computer is the master";
+		}
+		
+		if(user == 2 && computer == 1)
+		{
+			msg = "Scissors beats paper, user is the master";
+		}
+		
 		if(user == 0 && computer == 1)
 		{
-			msg = "Rock beats paper, computer is the master";
+			msg = "Paper beats rock, computer is the master";
 		}
-
+		
+		if(user == 1 && computer == 0)
+		{
+			msg = "Paper beats rock, user is the master";
+		}
+		
+		JOptionPane.showMessageDialog(null, msg);
 	}
+	
+	
 
 }
