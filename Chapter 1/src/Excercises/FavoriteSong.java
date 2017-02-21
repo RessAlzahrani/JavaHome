@@ -4,7 +4,7 @@
 package Excercises;
 
 /**
- * @author bmwn1
+ * @author RA316282
  *
  */
 public class FavoriteSong {
