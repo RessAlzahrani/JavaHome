@@ -1,25 +1,22 @@
-/**
- * 
- */
 package Excercises;
+
 import java.util.Scanner;
+
 /**
  * @author RA316282
  *
  */
 public class Pay {
-	
-	
-	//fields to calculate pay
+
+	// fields to calculate pay
 	public static int skillLevel;
 	public static double hoursWorked;
 	public static final double LEVEL1_PAY = 17.00;
 	public static final double LEVEL2_PAY = 20.00;
 	public static final double LEVEL3_PAY = 22.00;
 	public static final double INVALID = 0;
-	
-	
-	//fields to display hours worked and calculate pay
+
+	// fields to display hours worked and calculate pay
 	public static double overtimeHours;
 	public static double regularHours;
 	public static double regularPayRate;
@@ -40,22 +37,20 @@ public class Pay {
 	public static final double RETIREMENT_RATE = 0.03;
 	public static double insurancePremiums;
 	public static double netPay;
-	
-	
-	public static void main(String[] args) 
-	{
+
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		setPayRates();
 		calculateHoursWorked();
 		calculatePay();
 		setInsuranceSelections();
 		calculateNetPay();
-        displayDetail();
+		displayDetail();
 
 	}
-	public static void setPayRates()
-	{
+
+	public static void setPayRates() {
 		System.out.println("What is your skill level?");
 		System.out.println("-----------------");
 		System.out.println("1 - Level 1");
@@ -63,52 +58,48 @@ public class Pay {
 		System.out.println("3 - Level 3");
 		System.out.println("-----------------");
 		skillLevel = enter.nextInt();
-		switch (skillLevel)
-			{
-				case 1:
-					regularPayRate = LEVEL1_PAY;
-					break;
-				case 2:
-					regularPayRate = LEVEL2_PAY;
-					break;
-				case 3:
-					regularPayRate = LEVEL3_PAY;
-					break;
-				default:
-					regularPayRate = INVALID;
-					System.out.println("INVALID Selection");
-					setPayRates();
-			}
+		switch (skillLevel) {
+		case 1:
+			regularPayRate = LEVEL1_PAY;
+			break;
+		case 2:
+			regularPayRate = LEVEL2_PAY;
+			break;
+		case 3:
+			regularPayRate = LEVEL3_PAY;
+			break;
+		default:
+			regularPayRate = INVALID;
+			System.out.println("INVALID Selection");
+			setPayRates();
+		}
 		overtimePayRate = regularPayRate * 1.5;
 	}
-//calculates regular and overtime hours worked.
-	
-public static void calculateHoursWorked()
-	{
+
+	// calculates regular and overtime hours worked.
+
+	public static void calculateHoursWorked() {
 		System.out.println("How many hours did you work last week?");
 		hoursWorked = enter.nextInt();
-		if (hoursWorked < 41)
-			{
-				regularHours = 40;
-			}
-		else
-			{
-				overtimeHours = hoursWorked - 40;
-				regularHours = hoursWorked - overtimeHours;
-			}
+		if (hoursWorked < 41) {
+			regularHours = 40;
+		} else {
+			overtimeHours = hoursWorked - 40;
+			regularHours = hoursWorked - overtimeHours;
+		}
 	}
-//calculate gross pay
 
-public static void calculatePay()
-	{
+	// calculate gross pay
+
+	public static void calculatePay() {
 		regularPay = regularHours * regularPayRate;
 		overtimePay = overtimeHours * overtimePayRate;
 		grossPay = regularPay + overtimePay;
 	}
-//select insurance and calculate total insurance payment
 
-public static void setInsuranceSelections()
-	{
+	// select insurance and calculate total insurance payment
+
+	public static void setInsuranceSelections() {
 		System.out.println("Please select insurance 1, 2, 3, or 4 your type: ");
 		System.out.println("To End Selections Enter 0");
 		System.out.println("-----------------");
@@ -118,50 +109,45 @@ public static void setInsuranceSelections()
 		System.out.println("4 - Retirement");
 		System.out.println("-----------------");
 		insuranceSelections = enter.nextInt();
-		switch (insuranceSelections)
-			{
-				case 1:
-					medical = MEDICAL_PAY;
-					setInsuranceSelections();
-					break;
-				case 2:
-					dental = DENTAL_PAY;
-					setInsuranceSelections();
-					break;
-				case 3:
-					disability = DISABILITY_PAY;
-					setInsuranceSelections();
-					break;
-				default:
-					break;
-			}
-		if (insuranceSelections == 4)
-			{
-				getSkillLevel();
-			}
-		if (skillLevel == 3)
-			{
-				retirement = RETIREMENT_RATE;
-				retirementPremium = grossPay * retirement;
-			}
-		else
-			{
-				retirementPremium = 0;
-			}
+		switch (insuranceSelections) {
+		case 1:
+			medical = MEDICAL_PAY;
+			setInsuranceSelections();
+			break;
+		case 2:
+			dental = DENTAL_PAY;
+			setInsuranceSelections();
+			break;
+		case 3:
+			disability = DISABILITY_PAY;
+			setInsuranceSelections();
+			break;
+		default:
+			break;
+		}
+		if (insuranceSelections == 4) {
+			getSkillLevel();
+		}
+		if (skillLevel == 3) {
+			retirement = RETIREMENT_RATE;
+			retirementPremium = grossPay * retirement;
+		} else {
+			retirementPremium = 0;
+		}
 		insurancePremiums = medical + dental + disability + retirementPremium;
 	}
-//calculate net pay
 
-public static void calculateNetPay()
-	{
+	// calculate net pay
+
+	public static void calculateNetPay() {
 		netPay = grossPay - insurancePremiums;
 	}
-public static int getSkillLevel()
-	{
+
+	public static int getSkillLevel() {
 		return skillLevel;
 	}
-public static void displayDetail()
-	{
+
+	public static void displayDetail() {
 		System.out.println("Hourly Pay Rate: " + regularPayRate);
 		System.out.println("Overtime Pay Rate: " + overtimePayRate);
 		System.out.println("Regular Hours Worked: " + regularHours);
@@ -178,4 +164,3 @@ public static void displayDetail()
 		System.out.println("Net Pay: " + netPay);
 	}
 }
-
